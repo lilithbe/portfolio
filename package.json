@@ -1,6 +1,6 @@
 {
-  "homepage": "https://lilithbe.github.io/portfolio",
-  "name": "portfolio",
+  "homepage": "https://lilithbe.github.io/post",
+  "name": "post",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
