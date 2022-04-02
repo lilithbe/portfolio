@@ -1,0 +1,12 @@
+.test{
+    border-radius: 4px;
+    position:fixed;
+    transition: all 2s;
+    cursor:e-resize;
+    outline:2px solid rgb(129, 103, 247);
+    position: absolute;
+    border:unset;
+    background-color:unset!important;
+}
+
+
