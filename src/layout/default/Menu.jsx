@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { postMenuItems } from '../../common'
 import { MenuWrapper, SearchWrapper, SideBar } from './styled'
 const ToggleButton=styled.button`
  
@@ -127,7 +128,7 @@ const Menu = ({ isToggle, setIsToggle }) => {
           <header className="major">
             <h2>Menu</h2>
           </header>
-          <SideMenu items={items} />
+          <SideMenu items={postMenuItems} />
         </MenuWrapper>
 
         {/* Section */}
@@ -213,18 +214,3 @@ const SubItem = ({children}) => {
     <span className={sapnClass} onClick={toggle}>{children}</span>
   )
  }
-const items = [
-  { label: 'Main', to: '/', children: [] },
-  { label: 'Java script', to: '/post/javascript', children: [] },
-  { label: 'React', to: '/post/react', children: [] },
-  { label: 'Node.js', to: '/post/nodejs', children: [] },
-  {
-    label: 'images', to: '/post/nodejs', children: [
-      { label: 'test', to: '/post/test', children: [] },
-      { label: 'test', to: '/post/test', children: [] },
-      { label: 'test', to: '/post/test', children: [] },
-      { label: 'test', to: '/post/test', children: [] },
-      { label: 'test', to: '/post/test', children: [] },
-    ]
-  },
-]

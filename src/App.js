@@ -12,11 +12,11 @@ const App = () => {
      <Layout>
      <Routes>
     
-    <Route path="/"  element={<Main/>} />
-       <Route path="/post/:category/:id" element={<PostView/>} />          
-       <Route path="/post/:category" element={<PostList/>} />       
-       <Route path="/admin" element={'<admin />'} />
-       <Route path="/*" element={<NotFound/>} />
+    <Route path="/post"  element={<Main/>} />
+       <Route path="/post/view/:category/:id" element={<PostView/>} />          
+       <Route path="/post/list/:category" element={<PostList/>} />       
+       <Route path="/post/admin" element={'<admin />'} />
+       <Route path="/post/*" element={<NotFound/>} />
      </Routes>
 
   </Layout>

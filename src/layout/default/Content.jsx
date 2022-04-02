@@ -10,7 +10,7 @@ const Content = ({children}) => {
   <div className="inner">
     {/* Header */}
     <Header >
-      <Link to="admin" className="logo"><strong>Lilith</strong> Portfolio</Link>
+      <Link to="post" className="logo"><strong>Lilith</strong> Portfolio</Link>
       <ul className="icons">
         {/* <li><a href="/" className="icon brands fa-twitter"><span className="label">Twitter</span></a></li> */}
         <li><a href="/" className="icon brands fa-facebook-f"><span className="label">Facebook</span></a></li>
