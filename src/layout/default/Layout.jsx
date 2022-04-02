@@ -17,7 +17,7 @@ display: -moz-flex;
 
 
 const DefaultLayout = ({children}) => {
-    const [isToggle, setIsToggle] = useState(true)
+    const [isToggle, setIsToggle] = useState(false)
   return (
       <MainWrapper >
           
