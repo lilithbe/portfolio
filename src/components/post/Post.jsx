@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Post = ({ posts, type }) => {
     return (
@@ -9,8 +10,8 @@ const Post = ({ posts, type }) => {
                         <article key={i}>
                             <span className={`icon ${post.icon}`} />
                             <div className="content">
-                                <h3>{post.label}</h3>
-                                <p>{post.content}</p>
+                                <h3>{post.subject}</h3>
+                                <p>{post.updatedAt}</p>
                             </div>
                         </article>
                     )
@@ -18,10 +19,10 @@ const Post = ({ posts, type }) => {
                     return (
                         <article key={i}>
                             <a href={post.to} className="image"><img src={post.src} alt={post.alt} /></a>
-                            <h3>{post.label}</h3>
-                            <p>{post.content}</p>
+                            <h3>{post.category} - {post.subject}</h3>
+                            <p>{post.updatedAt}</p>
                             <ul className="actions">
-                                <li><a href={post.category} className="button">More</a></li>
+                                <li><Link to={`/post/view/${post.category}/${post._id}`} className="button">Open Post</Link></li>
                             </ul>
                         </article>
                     )

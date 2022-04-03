@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 export const SideBar = styled.div`
 -moz-flex-grow: 0;
 -webkit-flex-grow: 0;
@@ -174,6 +174,7 @@ export const MenuWrapper = styled.nav`
   margin-bottom: 0;
   padding: 0;
   text-transform: uppercase;
+ 
 }
 
  ul a,
@@ -184,6 +185,7 @@ export const MenuWrapper = styled.nav`
   display: block;
   font-size: 0.9em;
   padding: 0.625em 0;
+ 
 }
 
  ul a:hover,
@@ -231,6 +233,7 @@ export const MenuWrapper = styled.nav`
  ul a.opener:hover:before,
  ul span.opener:hover:before {
   color: #f56a6a;
+
 }
 
  ul a.opener.active+ul,
@@ -257,11 +260,13 @@ export const MenuWrapper = styled.nav`
   display: none;
   margin: 0.5em 0 1.5em 0;
   padding-left: 1em;
+ 
 }
 
 >ul>li>ul a,
 >ul>li>ul span {
   font-size: 0.8em;
+
 }
 
 >ul>li>ul>li {
@@ -479,3 +484,162 @@ export const Jumbotron = styled.section`
   }
 
 `
+export const AuthWrapper = styled.div`
+display: flex;
+align-items: center;
+padding-top: 40px;
+padding-bottom: 40px;
+background-color: #f5f5f5;
+`
+export const AuthForm =styled.div`
+width: 100%;
+max-width: 330px;
+padding: 15px;
+margin: auto;
+
+ .checkbox {
+    font-weight: 400;
+  }
+  
+   .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+   input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+   input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+`
+export const FloatingForm = styled.div`
+
+
+`
+
+export const ToggleButton=styled.button`
+ 
+  text-decoration: none;
+  -moz-transition: left 0.5s ease;
+  -webkit-transition: left 0.5s ease;
+  -ms-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  border:none;
+  outline: none;
+  box-shadow: none;
+  
+  display: block;
+  height: 7.5em;
+  left: 26em;
+  line-height: 7.5em;
+  outline: 0;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-indent: -15em;
+  white-space: nowrap;
+  top: 0;
+  width: 6em;
+  z-index: 10000;
+:hover{
+  background-color:unset!important;
+}
+
+ :before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f0c9';
+  font-size: 2rem;
+  height: inherit;
+  left: 0;
+  line-height: inherit;
+  position: absolute;
+  text-indent: 0;
+  top: 0;
+  width: inherit;
+}
+
+
+@media screen and (max-width: 1680px) {
+  height: 6.25em;
+  left: 24em;
+  line-height: 6.25em;
+  text-indent: 5em;
+  width: 5em;
+
+   :before {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media screen and (max-width: 1280px) { 
+
+  text-indent: 6em;
+    width: 6em;
+
+   :before {
+    font-size: 1.5rem;
+    margin-left: -0.4375em;
+  }
+
+
+}
+
+@media screen and (max-width: 736px) {
+  text-indent: 7.25em;
+  width: 7.25em;
+
+   :before {
+    color: #7f888f;
+    margin-left: -0.0625em;
+    margin-top: -0.25em;
+    font-size: 1.1rem;
+    z-index: 1;
+  }
+
+   :after {
+    background: rgba(222, 225, 226, 0.75);
+    border-radius: 0.375em;
+    content: '';
+    height: 3.5em;
+    left: 1em;
+    position: absolute;
+    top: 1em;
+    width: 5em;
+  }
+}
+
+
+`
+export const MainWrapper=styled.div`
+display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  min-height: 100vh; 
+  `

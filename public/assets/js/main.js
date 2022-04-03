@@ -5,7 +5,7 @@
 */
 
 (function($) {
-	console.log('main.js')
+
 	var	$window = $(window),
 		$head = $('head'),
 		$body = $('body');

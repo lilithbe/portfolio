@@ -1,22 +1,14 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { MainWrapper } from '../../common'
+import { setLogin, setLogout } from '../../redux'
 import Content from './Content'
 import Menu from './Menu'
 
-const MainWrapper=styled.div`
-display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -moz-flex-direction: row-reverse;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-  min-height: 100vh; 
-  `
 
 
-const DefaultLayout = ({children}) => {
+
+const DefaultLayout = ({children,authData,setLogin,setLogout}) => {
     const [isToggle, setIsToggle] = useState(false)
   return (
       <MainWrapper >
@@ -24,10 +16,20 @@ const DefaultLayout = ({children}) => {
           <Content isToggle={isToggle}>
               {children}
           </Content>
-          <Menu  isToggle={isToggle} setIsToggle={setIsToggle}/>
+          <Menu  isToggle={isToggle} setIsToggle={setIsToggle} authData={authData} setLogin={setLogin}setLogout={setLogout}/>
        
       </MainWrapper>
   )
 }
-
-export default DefaultLayout
+const mapStateToProps = (state) => { 
+  return {
+    authData:state.authData,
+  }
+ }
+ const mapDispatchToProps = (dispatch) => {
+  return {
+      setLogin:(data)=>dispatch(setLogin(data)),
+      setLogout:(data)=>dispatch(setLogout(data))
+  };
+}; 
+export default connect(mapStateToProps,mapDispatchToProps)(DefaultLayout)

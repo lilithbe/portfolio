@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentWrapper,Header , Jumbotron} from './styled'
+import { ContentWrapper,Header } from '../../common'
 import { Link  } from "react-router-dom";
 import Section from '../../components/section/Section';
 import Post from '../../components/post/Post';
