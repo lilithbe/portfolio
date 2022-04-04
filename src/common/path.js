@@ -1,4 +1,6 @@
-const url='https://lilithbepostapi.herokuapp.com/api'
+//  const url='https://lilithbepostapi.herokuapp.com/api'
+console.log(process.env.REACT_APP_TYPE)
+const url =process.env.REACT_APP_TYPE==='development'? 'http://localhost:4600/api':'https://lilithbepostapi.herokuapp.com/api'
 const post=`${url}/post`
 const auth=`${url}/auth`
 
@@ -10,6 +12,7 @@ export const POST_GET_LIST_ALL=`${post}/get-all`
 export const POST_GET_LIST_CATEGORY=`${post}/get-category`
 export const POST_GET_LIST_SEARCH=`${post}/get-search`
 export const POST_GET_ONE=`${post}/get-one`
+export const POST_GET_MY_POST=`${post}/get-my-post`
 
 // --------------------------------------------------------------------
 export const AUTH_SIGNUP=`${auth}/signup`

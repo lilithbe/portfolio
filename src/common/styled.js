@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// const defaultColor='#f56a6a'
+const defaultColor='#f56a6a'
 export const SideBar = styled.div`
 -moz-flex-grow: 0;
 -webkit-flex-grow: 0;
@@ -178,7 +180,9 @@ export const MenuWrapper = styled.nav`
 }
 
  ul a,
+ ul button,
  ul span {
+  text-decoration-line:none;
   border-bottom: 0;
   color: inherit;
   cursor: pointer;
@@ -189,11 +193,13 @@ export const MenuWrapper = styled.nav`
 }
 
  ul a:hover,
+ ul button:hover,
  ul span:hover {
-  color: #f56a6a;
+  color: ${defaultColor};
 }
 
  ul a.opener,
+ ul button.opener,
  ul span.opener {
   -moz-transition: color 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out;
@@ -205,6 +211,7 @@ export const MenuWrapper = styled.nav`
 }
 
  ul a.opener:before,
+ ul button.opener:before,
  ul span.opener:before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -219,6 +226,7 @@ export const MenuWrapper = styled.nav`
 }
 
  ul a.opener:before,
+ ul button.opener:before,
  ul span.opener:before {
   -moz-transition: color 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
@@ -231,17 +239,20 @@ export const MenuWrapper = styled.nav`
 }
 
  ul a.opener:hover:before,
+ ul button.opener:hover:before,
  ul span.opener:hover:before {
-  color: #f56a6a;
+  color: ${defaultColor};
 
 }
 
  ul a.opener.active+ul,
+ ul button.opener.active+ul,
  ul span.opener.active+ul {
   display: block;
 }
 
  ul a.opener.active:before,
+ ul button.opener.active:before,
  ul span.opener.active:before {
   -moz-transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
@@ -264,6 +275,7 @@ export const MenuWrapper = styled.nav`
 }
 
 >ul>li>ul a,
+>ul>li>ul button,
 >ul>li>ul span {
   font-size: 0.8em;
 
@@ -346,7 +358,7 @@ export const Header = styled.header`
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  border-bottom: solid 5px #f56a6a;
+  border-bottom: solid 5px ${defaultColor};
   padding: 6em 0 1em 0;
   position: relative;
   *{
@@ -360,7 +372,15 @@ export const Header = styled.header`
     border-bottom: 0;
     color: inherit;
     font-family: "Roboto Slab", serif;
+   
+    ${props=>props.isMain?`
+    font-size: 2.25em;
+    transition: all ease-in .3s;
+    `:`
     font-size: 1.125em;
+    transition: all ease-out .3s;
+    `}
+ 
   }
   
   .icons {
@@ -375,7 +395,14 @@ export const Header = styled.header`
     padding-top: 6.5em;
   
     .logo {
-      font-size: 1.25em;
+      ${props=>props.isMain?`
+      font-size: 2.25em;
+      transition: all ease-in .3s;
+      `:`
+      font-size: 1.125em;
+      transition: all ease-out .3s;      
+      `}
+     
       margin: 0;
     }
   

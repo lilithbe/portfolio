@@ -4,7 +4,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
 import rootReducer from './rootReducer'
-const isDev =  process.env.PUBLIC_TYPE==='development'?true:false
+const isDev =  process.env.REACT_APP_TYPE==='development'? true:false
 const store = createStore(
   rootReducer,
   isDev?composeWithDevTools(applyMiddleware(logger, thunk)):applyMiddleware(thunk)

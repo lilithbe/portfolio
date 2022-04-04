@@ -12,7 +12,7 @@ const Layout = ({children}) => {
 
     useEffect(() => {
     
-        let path = location.pathname.split("/")[1]
+        let path = location.pathname.split("/")[2]
         if(path===""){
             setLayoutType("default")
         }else if(path==="admin"){

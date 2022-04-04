@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { postMenuItems, ToggleButton, MenuWrapper, SearchWrapper, SideBar  } from '../../common'
-
+import { postMenuItems, ToggleButton, MenuWrapper, SearchWrapper, SideBar, POST_GET_MY_POST  } from '../../common'
+import {postApi} from '../../lib/axios'
 
 const Menu = ({ isToggle, setIsToggle, authData,setLogin,setLogout }) => {
  
@@ -9,6 +9,19 @@ const Menu = ({ isToggle, setIsToggle, authData,setLogin,setLogout }) => {
     e.preventDefault()
     setIsToggle(!isToggle)
    }
+   const [isLoading, setIsLoading] = useState(false)
+   const [myPosts, setMyPosts] = useState([])
+   useEffect(() => {
+     if(authData.isLogin){
+       postApi(setIsLoading,POST_GET_MY_POST,(res)=>{
+        setMyPosts(res.data)
+       } ,{userId:authData.userId})
+     }
+     return () => {
+      setMyPosts([])
+     }
+   }, [authData.isLogin, authData.userId])
+   
   return (
     <SideBar className={`${isToggle?'inactive':''}`} >
       <div className="inner">
@@ -23,26 +36,23 @@ const Menu = ({ isToggle, setIsToggle, authData,setLogin,setLogout }) => {
           <header className="major">
             <h2>Menu</h2>
           </header>
-          <SideMenu items={postMenuItems}   />
+          <SideMenu items={postMenuItems} authData={authData} setLogout={setLogout}  />
         </MenuWrapper>
         {/* Section */}
         <section>
           <header className="major">
-            <h2>Ante interdum</h2>
+            <h2>{authData.isLogin?authData.nickName:'Account'}</h2>
           </header>
           <div className="mini-posts">
-            <article>
-              <a href="#" className="image"><img src="/images/pic07.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="#" className="image"><img src="/images/pic08.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="#" className="image"><img src="/images/pic09.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
+            {myPosts.map((post,i)=>{
+              return(
+                <article key={i}>
+                <p>{post.subject}</p>
+              </article>
+              )
+            })}
+         
+          
           </div>
           <ul className="actions">
             <li><a href="#" className="button">More</a></li>
@@ -70,7 +80,7 @@ const Menu = ({ isToggle, setIsToggle, authData,setLogin,setLogout }) => {
 }
 
 export default Menu
-const SideMenu = ({ items }) => {
+const SideMenu = ({ items, authData,setLogout }) => {
   return (
     <ul>
       {items.map((item, i) => {
@@ -89,6 +99,22 @@ const SideMenu = ({ items }) => {
             </li>
         )
       })}
+
+      <li >
+        <SubItem >{authData.isLogin ? `${authData.nickName} 님 어서오세요` : 'Account'}</SubItem>
+        {authData.isLogin?
+         <ul>
+         <li><Link to={'/post/auth/profile'}>profile</Link></li>
+         <li ><button onClick={(e)=>{e.preventDefault(); setLogout();}}>log out</button></li>
+         {authData.isAdmin?  <li><Link to={'/post/admin'}>Admin</Link></li>:null}
+       
+       </ul>:
+        <ul>
+        <li><Link to={'/post/auth/signin'}>sign in</Link></li>
+        <li><Link to={'/post/auth/signup'}>sign up</Link></li>
+      </ul>}
+       
+      </li>
 
     </ul>
   )

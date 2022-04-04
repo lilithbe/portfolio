@@ -57,7 +57,7 @@ const Signup = ({setLogin}) => {
             console.log(res.data.token)
               sessionStorage.setItem('token',res.data.token)
               setLogin(res.data)
-              go('post')
+              go('/post')
           }else{
             setStepByStep({
               message:res.data.message,
@@ -74,21 +74,21 @@ const Signup = ({setLogin}) => {
   <form onSubmit={checkHandler}>
     <h1 className="h3 mb-3 fw-normal">Sign Up</h1>
     <FloatingForm className="form-floating mb-2">
-      <input value={authState.userId} onChange={(e)=>{setAuthState({...authState,userId:e.target.value})}} type="text" className="form-control" id="floatingInput" name="userId" autoComplete={"false"} />
+      <input onClick={(e)=>{e.target.select()}}  required value={authState.userId} onChange={(e)=>{setAuthState({...authState,userId:e.target.value})}} type="text" className="form-control" id="floatingInput" name="userId" autoComplete={"false"} />
       <label htmlFor="floatingInput">Email address</label>
     </FloatingForm>
     <FloatingForm className="form-floating mb-2">
-      <input value={authState.password} onChange={(e)=>{setAuthState({...authState,password:e.target.value})}} type="password" className="form-control" id="floatingPassword" name="Password"  autoComplete={"false"}/>
+      <input onClick={(e)=>{e.target.select()}}  required value={authState.password} onChange={(e)=>{setAuthState({...authState,password:e.target.value})}} type="password" className="form-control" id="floatingPassword" name="Password"  autoComplete={"false"}/>
       <label htmlFor="floatingPassword">Password</label>
     </FloatingForm>
 
     <FloatingForm className="form-floating mb-2">
-      <input value={authState.confirmPassword} onChange={(e)=>{setAuthState({...authState,confirmPassword:e.target.value})}} type="password" className="form-control" id="confirmPassword"  name="confirmPassword"  autoComplete={"false"}/>
+      <input onClick={(e)=>{e.target.select()}}  required value={authState.confirmPassword} onChange={(e)=>{setAuthState({...authState,confirmPassword:e.target.value})}} type="password" className="form-control" id="confirmPassword"  name="confirmPassword"  autoComplete={"false"}/>
       <label htmlFor="confirmPassword">Confirm Password</label>
     </FloatingForm>
 
     <FloatingForm className="form-floating mb-2">
-      <input value={authState.nickName} onChange={(e)=>{setAuthState({...authState,nickName:e.target.value})}} type="text" className="form-control" id="NickName" name="nickName"  />
+      <input onClick={(e)=>{e.target.select()}}  required value={authState.nickName} onChange={(e)=>{setAuthState({...authState,nickName:e.target.value})}} type="text" className="form-control" id="NickName" name="nickName"  />
       <label htmlFor="NickName">Nick Name</label>
     </FloatingForm>
     

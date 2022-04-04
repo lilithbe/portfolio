@@ -1,15 +1,14 @@
 import React from 'react'
 import { ContentWrapper,Header } from '../../common'
-import { Link  } from "react-router-dom";
-import Section from '../../components/section/Section';
-import Post from '../../components/post/Post';
+import { Link, useLocation  } from "react-router-dom";
+
 const Content = ({children}) => {
-  
+  const location= useLocation()
   return (
    <ContentWrapper >
   <div className="inner">
     {/* Header */}
-    <Header >
+    <Header isMain={location.pathname.split("/")[2]===undefined?true:false}>
       <Link to="post" className="logo"><strong>Lilith</strong> Portfolio</Link>
       <ul className="icons">
         {/* <li><a href="/" className="icon brands fa-twitter"><span className="label">Twitter</span></a></li> */}

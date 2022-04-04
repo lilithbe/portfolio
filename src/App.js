@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 import { setLogin, setLogout } from './redux';
 import { postApi } from './lib/axios';
 import { AUTH_TOKEN_CHECK } from './common';
+import PostUpdate from './pages/PostUpdate';
 
 const App = ({authData,setLogin,setLogout}) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -48,13 +49,12 @@ const App = ({authData,setLogin,setLogout}) => {
           <Route path="/post/skill" element={<Skill />} />
           <Route path="/post/project" element={<Project />} />
           <Route path="/post/view/:category/:id" element={<PostView />} />
+          <Route path="/post/update/:category/:id" element={<PostUpdate />} />
           <Route path="/post/list/:category" element={<PostList />} />
           <Route path="/post/write/:category" element={<PostWrite />} />
           <Route path="/post/*" element={<NotFound />} />
         </Routes>
-
   </Layout>
-    
     </BrowserRouter>
 
   

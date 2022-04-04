@@ -22,13 +22,5 @@ export const postMenuItems =[
       { label: 'test', to: '/post/list/test', children: [] },
     ]
   },
-  {
-    label: 'account', to: '', children: [
-      { label: 'Signup', to: '/post/auth/signup', children: [] },
-      { label: 'Signin', to: '/post/auth/signin', children: [] },
-      { label: 'profile', to: '/post/auth/profile', children: [] },
-      { label: 'Admin', to: '/post/admin', children: [] }
-    ]
-  },
 ]
 

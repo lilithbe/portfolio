@@ -35,6 +35,7 @@ const initialState = {
   age:'',
   address: {},
   birthday:'',  
+  myPosts:[],
 }
 
 const reducer = (state = initialState, action) => {
